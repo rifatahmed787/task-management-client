@@ -4,6 +4,8 @@ import AddTasks from "../Pages/AddTasks/AddTasks";
 import CompleteTasks from "../Pages/CompleteTasks/CompleteTasks";
 import InCompleteTasks from "../Pages/InCompleteTasks/InCompleteTasks";
 import MyTasks from "../Pages/MyTasks/MyTasks";
+import LogIn from "../Register/LogIn";
+import SignUp from "../Register/SignUp";
 import ErrorPage from "../Shared/ErrorPage";
 
 export const router = createBrowserRouter([
@@ -13,7 +15,7 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        path: "/",
+        path: "/addtasks",
         element: <AddTasks></AddTasks>,
       },
       {
@@ -27,6 +29,14 @@ export const router = createBrowserRouter([
       {
         path: "/incompletetasks",
         element: <InCompleteTasks></InCompleteTasks>,
+      },
+      {
+        path: "/login",
+        element: <LogIn></LogIn>,
+      },
+      {
+        path: "/",
+        element: <SignUp></SignUp>,
       },
     ],
   },
