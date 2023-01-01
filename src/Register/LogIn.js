@@ -18,7 +18,6 @@ const LogIn = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
 
     logIn(email, password)
       .then((result) => {
@@ -102,7 +101,6 @@ const LogIn = () => {
               >
                 Sign up
               </Link>
-              .
             </p>
             <div className="flex items-center w-full my-4">
               <hr className="w-full text-gray-500 dark:text-gray-400" />

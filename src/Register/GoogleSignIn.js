@@ -6,7 +6,7 @@ import { AuthContext } from "../Context/AuthProvider";
 const GoogleSignIn = () => {
   const { googleSignIn } = useContext(AuthContext);
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/addtasks";
   const navigate = useNavigate();
 
   const handleGoogleSignIn = () => {

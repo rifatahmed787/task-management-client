@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import AddTasks from "../Pages/AddTasks/AddTasks";
 import CompleteTasks from "../Pages/CompleteTasks/CompleteTasks";
-import InCompleteTasks from "../Pages/InCompleteTasks/InCompleteTasks";
 import MyTasks from "../Pages/MyTasks/MyTasks";
 import LogIn from "../Register/LogIn";
 import SignUp from "../Register/SignUp";
@@ -25,10 +24,6 @@ export const router = createBrowserRouter([
       {
         path: "/completetasks",
         element: <CompleteTasks></CompleteTasks>,
-      },
-      {
-        path: "/incompletetasks",
-        element: <InCompleteTasks></InCompleteTasks>,
       },
       {
         path: "/login",
