@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
@@ -7,7 +7,21 @@ import { toast } from "react-hot-toast";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, LogOut } = useContext(AuthContext);
+  const [theme, setTheme] = useState("light");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
+
+  //dark mode handler
+  const themeToggle = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   const handleLogOut = () => {
     LogOut()
@@ -22,16 +36,16 @@ const Navbar = () => {
     <React.Fragment>
       {user?.uid ? (
         <>
-          <li className="font-semibold mr-2">
+          <li className="font-semibold mr-2 dark:text-white">
             <Link to="/addtasks">Add Tasks</Link>
           </li>
-          <li className="font-semibold mr-2">
+          <li className="font-semibold mr-2 dark:text-white">
             <Link to="/mytasks">My Tasks</Link>
           </li>
-          <li className="font-semibold mr-2">
+          <li className="font-semibold mr-2 dark:text-white">
             <Link to="/completetasks">Complete Tasks</Link>
           </li>
-          <li className="font-semibold mr-2">
+          <li className="font-semibold mr-2 dark:text-white">
             <button onClick={handleLogOut}>Log out</button>
           </li>
           <>
@@ -50,10 +64,10 @@ const Navbar = () => {
         </>
       ) : (
         <>
-          <li className="font-semibold mr-2">
+          <li className="font-semibold mr-2 dark:text-white">
             <Link to="/login">Log in</Link>
           </li>
-          <li className="font-semibold">
+          <li className="font-semibold dark:text-white">
             <Link to="/">Sign up</Link>
           </li>
         </>
@@ -68,16 +82,27 @@ const Navbar = () => {
             href="/"
             aria-label="Company"
             title="Company"
-            className="inline-flex items-center"
+            className="inline-flex items-center dark:text-white"
           >
             <Icon icon="material-symbols:task" width="32" />
-            <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
+            <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase dark:text-white">
               Tasks Management
             </span>
           </Link>
           <ul className="flex items-center hidden space-x-8 lg:flex">
             {menuItems}
           </ul>
+          <div className="mt-1.5">
+            <label className="inline-flex relative items-center cursor-pointer">
+              <input
+                onClick={themeToggle}
+                type="checkbox"
+                value=""
+                className="sr-only peer"
+              />
+              <div className="w-9 h-5 bg-black peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 "></div>
+            </label>
+          </div>
           <div className="lg:hidden">
             <button
               aria-label="Open Menu"
@@ -101,8 +126,8 @@ const Navbar = () => {
               </svg>
             </button>
             {isMenuOpen && (
-              <div className="absolute top-0 left-0 w-full">
-                <div className="p-5 bg-white border rounded shadow-sm">
+              <div className="absolute top-0 left-0 w-full dark:bg-black">
+                <div className="p-5 bg-white dark:bg-black border rounded shadow-sm">
                   <div className="flex items-center justify-between mb-4">
                     <div>
                       <Link
@@ -111,8 +136,12 @@ const Navbar = () => {
                         title="Company"
                         className="inline-flex items-center"
                       >
-                        <Icon icon="material-symbols:task" width="32" />
-                        <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
+                        <Icon
+                          icon="material-symbols:task"
+                          width="32"
+                          className="dark:text-white"
+                        />
+                        <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase dark:text-white">
                           Tasks Management
                         </span>
                       </Link>
@@ -135,6 +164,17 @@ const Navbar = () => {
                   </div>
                   <nav>
                     <ul className="space-y-4">{menuItems}</ul>
+                    <div className="mt-2">
+                      <label className="inline-flex relative items-center cursor-pointer">
+                        <input
+                          onClick={themeToggle}
+                          type="checkbox"
+                          value=""
+                          className="sr-only peer"
+                        />
+                        <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                      </label>
+                    </div>
                   </nav>
                 </div>
               </div>

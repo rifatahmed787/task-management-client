@@ -2,11 +2,16 @@ import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Icon } from "@iconify/react";
 import { AuthContext } from "../../Context/AuthProvider";
+import TitleHook from "../../Shared/TitleHook";
+import "./AddTasks.css";
 
 const AddTasks = () => {
   const { user } = useContext(AuthContext);
   const imageHostKey = process.env.REACT_APP_imagebb_key;
   const [fileList, setFileList] = useState([]);
+
+  //titlehook
+  TitleHook("Add Tasks");
 
   const taskSubmit = (event) => {
     event.preventDefault();
@@ -50,8 +55,8 @@ const AddTasks = () => {
       });
   };
   return (
-    <div className="">
-      <div className="lg:w-1/2 md:w-2/3 sm:w-2/5 mx-auto  p-4 mt-16 bg-[#CFE8FC] border border-gray-200 rounded-lg shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+    <div className="responsive">
+      <div className=" lg:w-1/2 md:w-2/3 sm:w-2/5 mx-auto  p-4 mt-16 bg-[#CFE8FC] border border-gray-200 rounded-lg shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
         <div className="flex justify-center items-center">
           <h5 className="text-xl mr-2 font-medium text-gray-900 dark:text-white">
             Add your list here

@@ -3,9 +3,11 @@ import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 import GoogleSignIn from "./GoogleSignIn";
+import "./SignUp.css";
 
 const SignUp = () => {
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile, resetPass, user } =
+    useContext(AuthContext);
   const [error, setError] = useState("");
   const location = useLocation();
 
@@ -32,7 +34,7 @@ const SignUp = () => {
       })
       .then((error) => {
         console.error(error);
-        // setError(error.message);
+        setError(error.message);
       });
   };
 
@@ -45,8 +47,18 @@ const SignUp = () => {
       .catch((error) => console.error(error));
   };
 
+  const handleResetPass = () => {
+    resetPass(user?.email)
+      .then(() => {
+        toast.success("Password reset email sent");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   return (
-    <div className="py-10">
+    <div className="py-10 responsive">
       <div className="flex flex-col max-w-md p-6 border bg-[#CFE8FC] mx-auto  rounded-md sm:p-10 dark:bg-gray-900 dark:text-gray-100">
         <div className="mb-8 text-center">
           <h1 className="my-3 text-4xl font-bold">Sign up</h1>
@@ -90,6 +102,7 @@ const SignUp = () => {
                   Password
                 </label>
                 <Link
+                  onClick={handleResetPass}
                   rel="noopener noreferrer"
                   href="#"
                   className="text-xs hover:underline dark:text-gray-400"

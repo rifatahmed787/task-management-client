@@ -5,11 +5,16 @@ import { toast } from "react-hot-toast";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
 import Loading from "../LoadingButton/Loading";
+import "../MyTasks/MyTaskCard.css";
+import TitleHook from "../../Shared/TitleHook";
 
 const CompleteTasks = () => {
   const { user } = useContext(AuthContext);
   const [doneTask, setDoneTask] = useState([]);
   const navigate = useNavigate();
+
+  //titlehook
+  TitleHook("Complete Tasks");
 
   const {
     data: tasks = [],
@@ -68,8 +73,8 @@ const CompleteTasks = () => {
 
   return (
     <div>
-      <div className=" pb-6">
-        <h3 className="text-2xl text-center mt-10 font-semibold text-sky-500">
+      <div className="pb-6">
+        <h3 className="text-2xl text-center mt-10 font-semibold text-sky-500 dark:text-white">
           {doneTask.length < 2 ? (
             <div>Your {doneTask.length} Task is completed</div>
           ) : (
@@ -81,18 +86,25 @@ const CompleteTasks = () => {
         doneTask.map((task) => (
           <div
             key={task._id}
-            className="max-w-lg p-6  mx-auto mt-10 bg-[#CFE8FC] border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700"
+            className="max-w-sm p-6 responsive mx-auto mt-10 bg-[#CFE8FC] border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700"
           >
             <div className="flex justify-between">
               <div className="flex items-center">
                 <Icon
                   icon="fluent-mdl2:completed-solid"
-                  className="text-green-500"
-                  width="22"
+                  className="text-green-500 pl-1"
+                  width="20"
                 ></Icon>
-                <div className="pl-3 pb-1">
-                  {/* className={isChecked ? "line-through" : ""} */}
-                  <p>{task.task}</p>
+                <div className="pl-3 pb-1 dark:text-white">
+                  <p
+                    style={{
+                      textDecoration: task.done
+                        ? "line-through"
+                        : "in-progress",
+                    }}
+                  >
+                    {task.task}
+                  </p>
                 </div>
               </div>
 
@@ -111,11 +123,12 @@ const CompleteTasks = () => {
                   data-modal-toggle="popup-modal"
                   id="popup-modal"
                   type="button"
-                  className="text-gray-900 bg-white border border-red-700 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2  dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                  className="text-gray-900 bg-white border border-red-700 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2 mr-2  dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
                 >
                   <Icon
                     icon="material-symbols:delete"
                     className="text-red-700"
+                    width="18"
                   ></Icon>
                 </button>
               </div>

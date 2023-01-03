@@ -2,11 +2,15 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../Context/AuthProvider";
+import TitleHook from "../../Shared/TitleHook";
 import Loading from "../LoadingButton/Loading";
 import MyTaskCard from "./MyTaskCard";
 
 const MyTasks = () => {
   const { user } = useContext(AuthContext);
+
+  //titlehook
+  TitleHook("My Tasks");
 
   const {
     data: tasks = [],
@@ -42,25 +46,13 @@ const MyTasks = () => {
     }
   };
 
-  //handle checkbox
-  // const handleCheckbox = (id) => {
-  //   const newTask = tasks.map((task) => {
-  //     if (task._id === id) {
-  //       return { ...task, task: !task.done };
-  //     } else {
-  //       return task;
-  //     }
-  //   });
-  //   // settasks(newTask);
-  // };
-
   if (isLoading) {
     return <Loading></Loading>;
   }
 
   return (
     <div className="pb-16">
-      <h3 className="text-2xl text-center mt-10 font-semibold text-sky-500">
+      <h3 className="text-2xl text-center mt-10 font-semibold text-sky-500 dark:text-white">
         {tasks.length < 2 ? (
           <div>You have {tasks?.length} Active Task</div>
         ) : (
@@ -74,9 +66,7 @@ const MyTasks = () => {
             refetch={refetch}
             task={task}
             handleTaskDelete={handleTaskDelete}
-            // tasks={tasks}
             isLoading={isLoading}
-            // handleCheckbox={handleCheckbox}
           ></MyTaskCard>
         ))}
     </div>
