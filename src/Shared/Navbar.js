@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 import { toast } from "react-hot-toast";
 
@@ -8,6 +8,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, LogOut } = useContext(AuthContext);
   const [theme, setTheme] = useState("light");
+  const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -34,18 +35,45 @@ const Navbar = () => {
 
   const menuItems = (
     <React.Fragment>
+      <li
+        className={`font-semibold  dark:text-white ${
+          location.pathname === "/"
+            ? "bg-gray-500 rounded-lg px-2 py-1 text-white"
+            : ""
+        }`}
+      >
+        <Link to="/">Home</Link>
+      </li>
       {user?.uid ? (
         <>
-          <li className="font-semibold mr-2 dark:text-white">
+          <li
+            className={`font-semibold dark:text-white ${
+              location.pathname === "/addtasks"
+                ? "bg-gray-500 rounded-lg px-2 py-1 text-white"
+                : ""
+            }`}
+          >
             <Link to="/addtasks">Add Tasks</Link>
           </li>
-          <li className="font-semibold mr-2 dark:text-white">
+          <li
+            className={`font-semibold dark:text-white ${
+              location.pathname === "/mytasks"
+                ? "bg-gray-500 rounded-lg px-2 py-1 text-white"
+                : ""
+            }`}
+          >
             <Link to="/mytasks">My Tasks</Link>
           </li>
-          <li className="font-semibold mr-2 dark:text-white">
+          <li
+            className={`font-semibold dark:text-white ${
+              location.pathname === "/completetasks"
+                ? "bg-gray-500 rounded-lg px-2 py-1 text-white"
+                : ""
+            }`}
+          >
             <Link to="/completetasks">Complete Tasks</Link>
           </li>
-          <li className="font-semibold mr-2 dark:text-white">
+          <li className="font-semibold dark:text-white">
             <button onClick={handleLogOut}>Log out</button>
           </li>
           <>
@@ -64,11 +92,24 @@ const Navbar = () => {
         </>
       ) : (
         <>
-          <li className="font-semibold mr-2 dark:text-white">
-            <Link to="/login">Log in</Link>
+          <li
+            className={`font-semibold mr-2 dark:text-white ${
+              location.pathname === "/signup"
+                ? "bg-gray-500 rounded-lg px-2 py-1 text-white"
+                : ""
+            }`}
+          >
+            <Link to="/signup">Sign up</Link>
           </li>
-          <li className="font-semibold dark:text-white">
-            <Link to="/">Sign up</Link>
+
+          <li
+            className={`font-semibold mr-2 dark:text-white ${
+              location.pathname === "/login"
+                ? "bg-gray-500 rounded-lg px-2 py-1 text-white"
+                : ""
+            }`}
+          >
+            <Link to="/login">Log in</Link>
           </li>
         </>
       )}
@@ -76,20 +117,20 @@ const Navbar = () => {
   );
   return (
     <div>
-      <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+      <div className="px-4 py-7 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <Link
-            href="/"
+            to="/"
             aria-label="Company"
             title="Company"
             className="inline-flex items-center dark:text-white"
           >
             <Icon icon="material-symbols:task" width="32" />
-            <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase dark:text-white">
+            <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase dark:text-white focus:shadow-outline">
               Tasks Management
             </span>
           </Link>
-          <ul className="flex items-center hidden space-x-8 lg:flex">
+          <ul className="flex items-center hidden space-x-7 lg:flex">
             {menuItems}
           </ul>
           <div className="mt-1.5">

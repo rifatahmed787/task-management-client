@@ -71,11 +71,12 @@ const LogIn = () => {
                 name="password"
                 id="password"
                 placeholder="*****"
-                className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+                className="w-full px-3 pt-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
               />
             </div>
+            <p className="text-red-600">{error}</p>
           </div>
-          <p className="text-red-600">{error}</p>
+
           <div className="space-y-2">
             <div>
               <button
@@ -88,7 +89,7 @@ const LogIn = () => {
             <p className="px-6 text-sm text-center dark:text-gray-400">
               Don't have an account?
               <Link
-                to="/"
+                to="/signup"
                 rel="noopener noreferrer"
                 href="#"
                 className="hover:underline text-orange-600 dark:text-violet-400"

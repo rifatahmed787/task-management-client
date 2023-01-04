@@ -6,8 +6,7 @@ import GoogleSignIn from "./GoogleSignIn";
 import "./SignUp.css";
 
 const SignUp = () => {
-  const { createUser, updateUserProfile, resetPass, user } =
-    useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const [error, setError] = useState("");
   const location = useLocation();
 
@@ -47,15 +46,15 @@ const SignUp = () => {
       .catch((error) => console.error(error));
   };
 
-  const handleResetPass = () => {
-    resetPass(user?.email)
-      .then(() => {
-        toast.success("Password reset email sent");
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
+  // const handleResetPass = () => {
+  //   resetPass(user?.email)
+  //     .then(() => {
+  //       toast.success("Password reset email sent");
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // };
 
   return (
     <div className="py-10 responsive">
@@ -102,7 +101,6 @@ const SignUp = () => {
                   Password
                 </label>
                 <Link
-                  onClick={handleResetPass}
                   rel="noopener noreferrer"
                   href="#"
                   className="text-xs hover:underline dark:text-gray-400"
