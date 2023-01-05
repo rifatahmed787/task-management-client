@@ -69,8 +69,8 @@ const LogIn = () => {
               <input
                 type="password"
                 name="password"
-                id="password"
-                placeholder="*****"
+                autoComplete="on"
+                placeholder="******"
                 className="w-full px-3 pt-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
               />
             </div>

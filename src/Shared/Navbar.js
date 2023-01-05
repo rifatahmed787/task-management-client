@@ -38,7 +38,7 @@ const Navbar = () => {
       <li
         className={`font-semibold  dark:text-white ${
           location.pathname === "/"
-            ? "bg-gray-500 rounded-lg px-2 py-1 text-white"
+            ? "bg-purple-500 rounded-lg px-2 py-1 text-white"
             : ""
         }`}
       >
@@ -49,7 +49,7 @@ const Navbar = () => {
           <li
             className={`font-semibold dark:text-white ${
               location.pathname === "/addtasks"
-                ? "bg-gray-500 rounded-lg px-2 py-1 text-white"
+                ? "bg-purple-500 rounded-lg px-2 py-1 text-white"
                 : ""
             }`}
           >
@@ -58,7 +58,7 @@ const Navbar = () => {
           <li
             className={`font-semibold dark:text-white ${
               location.pathname === "/mytasks"
-                ? "bg-gray-500 rounded-lg px-2 py-1 text-white"
+                ? "bg-purple-500 rounded-lg px-2 py-1 text-white"
                 : ""
             }`}
           >
@@ -67,7 +67,7 @@ const Navbar = () => {
           <li
             className={`font-semibold dark:text-white ${
               location.pathname === "/completetasks"
-                ? "bg-gray-500 rounded-lg px-2 py-1 text-white"
+                ? "bg-purple-500 rounded-lg px-2 py-1 text-white"
                 : ""
             }`}
           >
@@ -95,7 +95,7 @@ const Navbar = () => {
           <li
             className={`font-semibold mr-2 dark:text-white ${
               location.pathname === "/signup"
-                ? "bg-gray-500 rounded-lg px-2 py-1 text-white"
+                ? "bg-purple-500 rounded-lg px-2 py-1 text-white"
                 : ""
             }`}
           >
@@ -105,7 +105,7 @@ const Navbar = () => {
           <li
             className={`font-semibold mr-2 dark:text-white ${
               location.pathname === "/login"
-                ? "bg-gray-500 rounded-lg px-2 py-1 text-white"
+                ? "bg-purple-500 rounded-lg px-2 py-1 text-white"
                 : ""
             }`}
           >

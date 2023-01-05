@@ -34,9 +34,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        element: <Details></Details>,
+        element: (
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/details/${params.id}`),
+          fetch(
+            `https://react-task-management-server.vercel.app/details/${params.id}`
+          ),
       },
       {
         path: "/completetasks",

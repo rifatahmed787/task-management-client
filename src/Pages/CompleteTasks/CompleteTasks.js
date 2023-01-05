@@ -23,7 +23,9 @@ const CompleteTasks = () => {
   } = useQuery({
     queryKey: ["tasks"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/gettasks/${user?.email}`);
+      const res = await fetch(
+        `https://react-task-management-server.vercel.app/gettasks/${user?.email}`
+      );
       const data = await res.json();
       return data;
     },
@@ -36,7 +38,7 @@ const CompleteTasks = () => {
 
   //incomplete handle
   const incompleteTask = (id) => {
-    fetch(`http://localhost:5000/undonetask/${id}`, {
+    fetch(`https://react-task-management-server.vercel.app/undonetask/${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())
@@ -51,7 +53,7 @@ const CompleteTasks = () => {
   const handleTaskDelete = (id) => {
     const processed = window.confirm("Are you sure want to delete");
     if (processed) {
-      fetch(`http://localhost:5000/tasks/${id}`, {
+      fetch(`https://react-task-management-server.vercel.app/tasks/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -86,7 +88,7 @@ const CompleteTasks = () => {
         doneTask.map((task) => (
           <div
             key={task._id}
-            className="max-w-sm p-6 responsive mx-auto mt-10 bg-[#CFE8FC] border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700"
+            className="lg:w-2/5 md:w-3/5 sm:w-4/5 responsive-card p-6 responsive mx-auto mt-10 bg-[#CFE8FC] border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700"
           >
             <div className="flex justify-between">
               <div className="flex items-center">

@@ -31,8 +31,7 @@ const SignUp = () => {
         navigate(from, { replace: true });
         handleUpdateProfile(name);
       })
-      .then((error) => {
-        console.error(error);
+      .catch((error) => {
         setError(error.message);
       });
   };
@@ -111,13 +110,14 @@ const SignUp = () => {
               <input
                 type="password"
                 name="password"
-                id="password"
+                autoComplete="on"
                 placeholder="*****"
                 className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
               />
             </div>
+            <p className="text-red-600">{error}</p>
           </div>
-          <p className="text-red-600">{error}</p>
+
           <div className="space-y-2">
             <div>
               <button

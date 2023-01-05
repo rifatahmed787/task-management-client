@@ -9,7 +9,7 @@ const MyTaskCard = ({ task, refetch, handleTaskDelete }) => {
   const navigate = useNavigate();
 
   const handleDone = (id) => {
-    fetch(`http://localhost:5000/donetask/${id}`, {
+    fetch(`https://react-task-management-server.vercel.app/donetask/${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())
@@ -31,13 +31,16 @@ const MyTaskCard = ({ task, refetch, handleTaskDelete }) => {
       task: task,
     };
     // console.log(isUpdating);
-    fetch(`http://localhost:5000/edittask/${isUpdating}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateDoc),
-    })
+    fetch(
+      `https://react-task-management-server.vercel.app/edittask/${isUpdating}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateDoc),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -56,8 +59,11 @@ const MyTaskCard = ({ task, refetch, handleTaskDelete }) => {
     <div>
       {isUpdating === task._id ? (
         <>
-          <form className="space-y-6 lg:px-20" onSubmit={handleUpdateTask}>
-            <div className="max-w-sm p-6  mx-auto mt-10 bg-[#CFE8FC] border border-gray-200 rounded-lg shadow-md dark:bg-gray-700 dark:border-gray-700">
+          <form
+            className="space-y-6 lg:px-20 responsive"
+            onSubmit={handleUpdateTask}
+          >
+            <div className="lg:w-2/5 md:w-3/5 sm:w-4/5 responsive-card p-6  mx-auto mt-10 bg-[#CFE8FC] border border-gray-200 rounded-lg shadow-md dark:bg-gray-700 dark:border-gray-700">
               <div className="flex justify-between">
                 <div className="flex items-center">
                   <div className="">
@@ -102,7 +108,7 @@ const MyTaskCard = ({ task, refetch, handleTaskDelete }) => {
         </>
       ) : (
         <>
-          <div className="max-w-sm pl-6 pb-7 mx-auto mt-10 bg-[#CFE8FC] border border-gray-200 rounded-lg shadow-md dark:bg-gray-700 dark:border-gray-700">
+          <div className="lg:w-2/5 md:w-3/5 sm:w-4/5 responsive-card pl-6 pb-7 mx-auto mt-10 bg-[#CFE8FC] border border-gray-200 rounded-lg shadow-md dark:bg-gray-700 dark:border-gray-700">
             <div className="flex justify-end py-1 pr-2">
               <Link to={`/details/${task._id}`}>
                 <Icon
