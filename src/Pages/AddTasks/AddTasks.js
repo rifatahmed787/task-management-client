@@ -20,6 +20,7 @@ const AddTasks = () => {
     formData.append("image", img);
     const form = event.target;
     const taskValue = form.task.value;
+    const detailsValue = form.details.value;
 
     formData.append("image", img);
     const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
@@ -33,6 +34,7 @@ const AddTasks = () => {
           const addTask = {
             img: imgData.data.url,
             task: taskValue,
+            details: detailsValue,
             email: user.email,
             done: false,
           };
@@ -56,7 +58,7 @@ const AddTasks = () => {
   };
   return (
     <div className="responsive">
-      <div className=" lg:w-1/2 md:w-2/3 sm:w-2/5 mx-auto  p-4 mt-16 bg-[#CFE8FC] border border-gray-200 rounded-lg shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+      <div className=" lg:w-1/2 md:w-2/3 sm:w-2/5 mx-auto  p-4 my-8 bg-[#CFE8FC] border border-gray-200 rounded-lg shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
         <div className="flex justify-center items-center">
           <h5 className="text-xl mr-2 font-medium text-gray-900 dark:text-white">
             Add your list here
@@ -94,6 +96,22 @@ const AddTasks = () => {
               />
             </div>
           </fieldset>
+          <div className="">
+            <label
+              htmlFor="task"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Add Details
+            </label>
+            <input
+              type="text"
+              name="details"
+              id="details"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 py-4 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              placeholder="Add Details"
+              required
+            />
+          </div>
           <button
             type="submit"
             className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"

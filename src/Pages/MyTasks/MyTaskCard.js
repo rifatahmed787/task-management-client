@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
 const MyTaskCard = ({ task, refetch, handleTaskDelete }) => {
@@ -59,11 +59,6 @@ const MyTaskCard = ({ task, refetch, handleTaskDelete }) => {
           <form className="space-y-6 lg:px-20" onSubmit={handleUpdateTask}>
             <div className="max-w-sm p-6  mx-auto mt-10 bg-[#CFE8FC] border border-gray-200 rounded-lg shadow-md dark:bg-gray-700 dark:border-gray-700">
               <div className="flex justify-between">
-                {/* <img
-          className="flex items-center w-10 h-10 rounded-full"
-          src={task.img}
-          alt=""
-        /> */}
                 <div className="flex items-center">
                   <div className="">
                     <input
@@ -107,13 +102,17 @@ const MyTaskCard = ({ task, refetch, handleTaskDelete }) => {
         </>
       ) : (
         <>
-          <div className="max-w-sm p-6 py-7 mx-auto mt-10 bg-[#CFE8FC] border border-gray-200 rounded-lg shadow-md dark:bg-gray-700 dark:border-gray-700">
+          <div className="max-w-sm pl-6 pb-7 mx-auto mt-10 bg-[#CFE8FC] border border-gray-200 rounded-lg shadow-md dark:bg-gray-700 dark:border-gray-700">
+            <div className="flex justify-end py-1 pr-2">
+              <Link to={`/details/${task._id}`}>
+                <Icon
+                  icon="ic:twotone-remove-red-eye"
+                  width="24"
+                  className="dark:text-green-500"
+                ></Icon>
+              </Link>
+            </div>
             <div className="flex justify-between">
-              {/* <img
-            className="flex items-center w-10 h-10 rounded-full"
-            src={task.img}
-            alt=""
-          /> */}
               <div className="flex items-center">
                 <button
                   onClick={() => handleDone(task._id)}
@@ -134,8 +133,7 @@ const MyTaskCard = ({ task, refetch, handleTaskDelete }) => {
                   </div>
                 </div>
               </div>
-
-              <div className="flex items-center ml-3">
+              <div className="flex items-center ml-3 pr-4">
                 <button
                   onClick={() => {
                     setIsUpdating(task._id);
