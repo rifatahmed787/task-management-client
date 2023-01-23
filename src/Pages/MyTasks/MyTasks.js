@@ -52,7 +52,7 @@ const MyTasks = () => {
 
   return (
     <div className="pb-16">
-      <h3 className="text-2xl text-center mt-10 font-semibold text-sky-500 dark:text-white">
+      <h3 className="text-2xl text-center mt-10 font-semibold text-sky-600 dark:text-white">
         {tasks.length < 2 ? (
           <div>You have {tasks?.length} Active Task</div>
         ) : (

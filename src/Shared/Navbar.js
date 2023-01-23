@@ -34,7 +34,7 @@ const Navbar = () => {
   };
 
   const menuItems = (
-    <React.Fragment>
+    <>
       <li
         className={`font-semibold  dark:text-white ${
           location.pathname === "/"
@@ -113,11 +113,11 @@ const Navbar = () => {
           </li>
         </>
       )}
-    </React.Fragment>
+    </>
   );
   return (
     <div>
-      <div className="px-4 py-7 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+      <div className="px-4 py-7 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 ">
         <div className="relative flex items-center justify-between">
           <Link
             to="/"
@@ -151,7 +151,7 @@ const Navbar = () => {
               className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
               onClick={() => setIsMenuOpen(true)}
             >
-              <svg className="w-5 text-gray-600" viewBox="0 0 24 24">
+              <svg className="w-5 text-white" viewBox="0 0 24 24">
                 <path
                   fill="currentColor"
                   d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"

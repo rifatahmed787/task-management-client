@@ -76,7 +76,7 @@ const CompleteTasks = () => {
   return (
     <div>
       <div className="pb-6">
-        <h3 className="text-2xl text-center mt-10 font-semibold text-sky-500 dark:text-white">
+        <h3 className="text-2xl text-center mt-10 font-semibold text-sky-600 dark:text-white">
           {doneTask.length < 2 ? (
             <div>Your {doneTask.length} Task is completed</div>
           ) : (
@@ -88,7 +88,7 @@ const CompleteTasks = () => {
         doneTask.map((task) => (
           <div
             key={task._id}
-            className="lg:w-2/5 md:w-3/5 sm:w-4/5 responsive-card p-6 responsive mx-auto mt-10 bg-[#CFE8FC] border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700"
+            className="lg:w-2/5 md:w-3/5 sm:w-4/5 responsive-card p-6 responsive mx-auto mt-10 bg-[#70C5B9] border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700"
           >
             <div className="flex justify-between">
               <div className="flex items-center">

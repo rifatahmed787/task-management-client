@@ -108,7 +108,7 @@ const MyTaskCard = ({ task, refetch, handleTaskDelete }) => {
         </>
       ) : (
         <>
-          <div className="lg:w-2/5 md:w-3/5 sm:w-4/5 responsive-card pl-6 pb-7 mx-auto mt-10 bg-[#CFE8FC] border border-gray-200 rounded-lg shadow-md dark:bg-gray-700 dark:border-gray-700">
+          <div className="lg:w-2/5 md:w-3/5 sm:w-4/5 responsive-card pl-6 pb-7 mx-auto mt-10 bg-[#70C5B9] border border-gray-200 rounded-lg shadow-md dark:bg-gray-700 dark:border-gray-700">
             <div className="flex justify-end py-1 pr-2">
               <Link to={`/details/${task._id}`}>
                 <Icon
