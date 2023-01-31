@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
-import { Icon } from "@iconify/react";
+
 import { AuthContext } from "../../Context/AuthProvider";
 import TitleHook from "../../Shared/TitleHook";
 import "./AddTasks.css";
@@ -63,7 +63,6 @@ const AddTasks = () => {
           <h5 className="text-xl mr-2 font-medium text-gray-900 dark:text-white">
             Add your list here
           </h5>
-          <Icon icon="openmoji:crossed-fingers" width="28"></Icon>
         </div>
         <form className="space-y-6 lg:px-20" onSubmit={taskSubmit} action="#">
           <div className="">
@@ -117,7 +116,7 @@ const AddTasks = () => {
           </div>
           <button
             type="submit"
-            className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className=" text-white bg-[#000000] hover:bg-[#000000] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             Submit
           </button>

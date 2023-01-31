@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import todo from "../../asset/image/todo1.jpg";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Home = () => {
   const { user } = useContext(AuthContext);
   return (
     <div>
-      <section className="pb-10 bg-[#B3DFBC] dark:bg-black">
-        <div className="bg-[#B3DFBC] dark:bg-black">
+      <section className="pb-10 bg-[#70c5b9] dark:bg-black">
+        <div className=" dark:bg-black">
           <div className="container flex flex-col items-center px-4 py-16 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32 dark:text-gray-900">
             <h1 className="text-3xl font-bold leading-none sm:text-6xl xl:max-w-3xl dark:text-gray-400">
               Add your daily task here
@@ -54,11 +53,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <img
-          src={todo}
-          alt=""
-          className="w-1/2 mx-auto mb-12 -mt-10 rounded-lg shadow-md lg:-mt-40 dark:bg-gray-500"
-        />
       </section>
     </div>
   );

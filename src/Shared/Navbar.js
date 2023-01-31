@@ -38,7 +38,7 @@ const Navbar = () => {
       <li
         className={`font-semibold  dark:text-white ${
           location.pathname === "/"
-            ? "bg-purple-500 rounded-lg px-2 py-1 text-white"
+            ? "bg-[#000000] rounded-lg px-2 py-1 text-white"
             : ""
         }`}
       >
@@ -49,7 +49,7 @@ const Navbar = () => {
           <li
             className={`font-semibold dark:text-white ${
               location.pathname === "/addtasks"
-                ? "bg-purple-500 rounded-lg px-2 py-1 text-white"
+                ? "bg-[#000000] rounded-lg px-2 py-1 text-white"
                 : ""
             }`}
           >
@@ -58,7 +58,7 @@ const Navbar = () => {
           <li
             className={`font-semibold dark:text-white ${
               location.pathname === "/mytasks"
-                ? "bg-purple-500 rounded-lg px-2 py-1 text-white"
+                ? "bg-[#000000] rounded-lg px-2 py-1 text-white"
                 : ""
             }`}
           >
@@ -67,7 +67,7 @@ const Navbar = () => {
           <li
             className={`font-semibold dark:text-white ${
               location.pathname === "/completetasks"
-                ? "bg-purple-500 rounded-lg px-2 py-1 text-white"
+                ? "bg-[#000000] rounded-lg px-2 py-1 text-white"
                 : ""
             }`}
           >
@@ -95,7 +95,7 @@ const Navbar = () => {
           <li
             className={`font-semibold mr-2 dark:text-white ${
               location.pathname === "/signup"
-                ? "bg-purple-500 rounded-lg px-2 py-1 text-white"
+                ? "bg-[#000000] rounded-lg px-2 py-1 text-white"
                 : ""
             }`}
           >
@@ -105,7 +105,7 @@ const Navbar = () => {
           <li
             className={`font-semibold mr-2 dark:text-white ${
               location.pathname === "/login"
-                ? "bg-purple-500 rounded-lg px-2 py-1 text-white"
+                ? "bg-[#000000] rounded-lg px-2 py-1 text-white"
                 : ""
             }`}
           >
@@ -116,7 +116,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div>
+    <div className="bg-[#70c5b9]">
       <div className="px-4 py-7 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 ">
         <div className="relative flex items-center justify-between">
           <Link

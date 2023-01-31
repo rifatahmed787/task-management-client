@@ -37,7 +37,7 @@ const LogIn = () => {
 
   return (
     <div className="py-10 responsive">
-      <div className="flex flex-col max-w-md p-6 border bg-[#CFE8FC] mx-auto  rounded-md sm:p-10 dark:bg-gray-900 dark:text-gray-100">
+      <div className="flex flex-col max-w-md p-6 border bg-[#70C5B9] mx-auto  rounded-md sm:p-10 dark:bg-gray-900 dark:text-gray-100">
         <div className="mb-8 text-center">
           <h1 className="my-3 text-4xl font-bold">Log in</h1>
           <p className="text-sm dark:text-gray-400">Sign in to your account</p>
@@ -81,7 +81,7 @@ const LogIn = () => {
             <div>
               <button
                 type="submit"
-                className="w-full px-8  py-3 font-semibold text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800  rounded-lg text-sm text-center mr-2 mb-2"
+                className="w-full px-8  py-3 font-semibold text-white bg-[#000000] dark:focus:ring-blue-800  rounded-lg text-sm text-center mr-2 mb-2"
               >
                 Sign in
               </button>

@@ -8,6 +8,7 @@ import { Icon } from "@iconify/react";
 const Details = () => {
   const { user } = useContext(AuthContext);
   const details = useLoaderData();
+
   return (
     <div className="pb-12 responsive">
       <div className="max-w-lg p-4 shadow-md dark:bg-gray-900 dark:text-gray-100 mx-auto bg-[#70C5B9] rounded-lg mt-5">
@@ -43,7 +44,7 @@ const Details = () => {
                   </div>
                 </div>
                 <img
-                  src={detail.img}
+                  src={detail?.img}
                   alt=""
                   className="block object-cover object-center w-full rounded-md h-72 dark:bg-gray-500"
                 />
