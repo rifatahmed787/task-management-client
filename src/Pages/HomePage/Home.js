@@ -25,7 +25,7 @@ const Home = () => {
                 <Link to="/addtasks">
                   <button
                     type="button"
-                    className="px-8 py-3 m-2 text-lg font-semibold rounded outline outline-cyan-500 dark:bg-gray-800 dark:text-gray-50"
+                    className="px-8 py-3 m-2 text-lg font-semibold rounded outline outline-black dark:bg-gray-800 dark:text-gray-50"
                   >
                     Get started
                   </button>
@@ -34,7 +34,7 @@ const Home = () => {
                 <Link to="/signup">
                   <button
                     type="button"
-                    className="px-8 py-3 m-2 text-lg font-semibold rounded outline outline-cyan-500 dark:bg-gray-800 dark:text-gray-50"
+                    className="px-8 py-3 m-2 text-lg font-semibold rounded outline outline-black dark:bg-gray-800 dark:text-gray-50"
                   >
                     Get started
                   </button>
@@ -45,7 +45,7 @@ const Home = () => {
               <Link to="/login">
                 <button
                   type="button"
-                  className="px-8 py-3 m-2 text-lg font-semibold border rounded outline outline-blue-500 dark:border-gray-700 dark:text-gray-50"
+                  className="px-8 py-3 m-2 text-lg font-semibold border rounded outline outline-black dark:border-gray-700 dark:text-gray-50"
                 >
                   Log In First
                 </button>

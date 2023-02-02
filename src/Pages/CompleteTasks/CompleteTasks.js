@@ -76,7 +76,7 @@ const CompleteTasks = () => {
   return (
     <div>
       <div className="pb-6">
-        <h3 className="text-2xl text-center mt-10 font-semibold text-sky-600 dark:text-white">
+        <h3 className="text-2xl text-center mt-10 font-bold  dark:text-white">
           {doneTask.length < 2 ? (
             <div>Your {doneTask.length} Task is completed</div>
           ) : (

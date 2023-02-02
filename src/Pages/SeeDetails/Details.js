@@ -11,11 +11,11 @@ const Details = () => {
 
   return (
     <div className="pb-12 responsive">
-      <div className="max-w-lg p-4 shadow-md dark:bg-gray-900 dark:text-gray-100 mx-auto bg-[#70C5B9] rounded-lg mt-5">
-        <div className="flex justify-between pb-4 border-bottom">
+      <div className="lg:w-1/2 md:w-3/4 sm:w-11/12 p-4 shadow-md dark:bg-gray-900 dark:text-gray-100 mx-auto bg-[#70C5B9] rounded-lg mt-5">
+        <div className="flex justify-between  pb-4 border-bottom">
           {details &&
             details?.map((detail) => (
-              <div key={detail._id}>
+              <div key={detail._id} className="mx-auto">
                 <div className=" pb-4 border-bottom">
                   <div className="flex justify-between ">
                     <div className="flex items-center space-x-2">

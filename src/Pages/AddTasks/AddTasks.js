@@ -1,38 +1,73 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-
+import { useNavigate } from "react-router-dom";
+import png from "../../asset/image/cloud-upload-regular-240.png";
 import { AuthContext } from "../../Context/AuthProvider";
 import TitleHook from "../../Shared/TitleHook";
 import "./AddTasks.css";
 
 const AddTasks = () => {
   const { user } = useContext(AuthContext);
-  const imageHostKey = process.env.REACT_APP_imagebb_key;
-  const [fileList, setFileList] = useState([]);
+  // const imageHostKey = process.env.REACT_APP_imagebb_key;
+  const [fileList, setFileList] = useState();
+  const [preview, setPreview] = useState();
+
+  const navigate = useNavigate();
 
   //titlehook
   TitleHook("Add Tasks");
 
+  useEffect(() => {
+    if (!fileList) {
+      setPreview(undefined);
+      return;
+    }
+
+    const objectUrl = URL.createObjectURL(fileList);
+    setPreview(objectUrl);
+
+    // free memory when ever this component is unmounted
+    return () => URL.revokeObjectURL(objectUrl);
+  }, [fileList]);
+
+  const onSelectFile = (e) => {
+    if (!e.target.files || e.target.files.length === 0) {
+      setFileList(undefined);
+      return;
+    }
+
+    // I've kept this example simple by using the first image instead of multiple
+    setFileList(e.target.files[0]);
+  };
+
+  //remove selected image
+  const removeSelectedImage = () => {
+    setFileList();
+  };
+
   const taskSubmit = (event) => {
     event.preventDefault();
-    const img = fileList?.target?.files[0];
+    // const img = fileList?.target?.files[0];
+    const img = fileList;
+    console.log(img);
     const formData = new FormData();
-    formData.append("image", img);
+    formData.append("file", img);
     const form = event.target;
     const taskValue = form.task.value;
     const detailsValue = form.details.value;
 
-    formData.append("image", img);
-    const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
+    formData.append("upload_preset", "jujslbiy");
+    // const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
+    const url = "https://api.cloudinary.com/v1_1/dztlowlu0/image/upload";
     fetch(url, {
       method: "POST",
       body: formData,
     })
       .then((res) => res.json())
       .then((imgData) => {
-        if (imgData.success) {
+        if (imgData.asset_id) {
           const addTask = {
-            img: imgData.data.url,
+            img: imgData.url,
             task: taskValue,
             details: detailsValue,
             email: user.email,
@@ -49,6 +84,7 @@ const AddTasks = () => {
             .then((data) => {
               if (data.acknowledged) {
                 toast.success("Task added successfully");
+                navigate("/mytasks");
                 form.reset();
               }
             })
@@ -64,7 +100,7 @@ const AddTasks = () => {
             Add your list here
           </h5>
         </div>
-        <form className="space-y-6 lg:px-20" onSubmit={taskSubmit} action="#">
+        <form className="space-y-6 lg:px-20" onSubmit={taskSubmit}>
           <div className="">
             <label
               htmlFor="task"
@@ -82,21 +118,7 @@ const AddTasks = () => {
               required
             />
           </div>
-          <fieldset className="w-full space-y-1 dark:text-gray-100">
-            <label htmlFor="files" className="block text-sm font-medium">
-              Attachments
-            </label>
-            <div className="flex">
-              <input
-                type="file"
-                name="files"
-                autoComplete="on"
-                onChange={setFileList}
-                id="files"
-                className="block w-full px-8 py-8 border-2 border-dashed rounded-md border-white bg-white dark:border-white dark:text-gray-400 dark:bg-gray-800"
-              />
-            </div>
-          </fieldset>
+
           <div className="">
             <label
               htmlFor="task"
@@ -114,6 +136,32 @@ const AddTasks = () => {
               required
             />
           </div>
+          <fieldset className="w-full space-y-1 dark:text-gray-100">
+            <label htmlFor="files" className="block text-sm font-medium">
+              Attachments
+            </label>
+            {fileList ? (
+              <>
+                <img src={preview} alt="/" className="w-1/2" />
+                <button onClick={removeSelectedImage}>Remove This Image</button>
+              </>
+            ) : (
+              <div className="flex">
+                <input
+                  type="file"
+                  name="files"
+                  autoComplete="on"
+                  onChange={onSelectFile}
+                  id="files"
+                  className="hidden"
+                />
+
+                <label htmlFor="files">
+                  <img src={png} alt="" className="block w-36" />
+                </label>
+              </div>
+            )}
+          </fieldset>
           <button
             type="submit"
             className=" text-white bg-[#000000] hover:bg-[#000000] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
