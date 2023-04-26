@@ -57,7 +57,7 @@ const SignUp = () => {
 
   return (
     <div className="py-10 responsive">
-      <div className="flex flex-col max-w-md p-6 border bg-[#70C5B9] mx-auto  rounded-md sm:p-10 dark:bg-gray-900 dark:text-gray-100">
+      <div className="flex flex-col max-w-md p-6 border border-orange-400 shadow-2xl bg-[#F3F4F6] mx-auto  rounded-md sm:p-10 dark:bg-gray-900 dark:text-gray-100">
         <div className="mb-8 text-center">
           <h1 className="my-3 text-4xl font-bold">Sign up</h1>
           <p className="text-sm dark:text-gray-400">
@@ -79,7 +79,7 @@ const SignUp = () => {
                 name="name"
                 type="text"
                 placeholder="name"
-                className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+                className="w-full px-3 py-2 border border-orange-400 focus:border-orange-400 bg-orange-100 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
               />
             </div>
             <div>
@@ -91,7 +91,7 @@ const SignUp = () => {
                 name="email"
                 id="email"
                 placeholder="Email"
-                className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+                className="w-full px-3 py-2 border border-orange-400 focus:border-orange-400 bg-orange-100 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
               />
             </div>
             <div>
@@ -112,7 +112,7 @@ const SignUp = () => {
                 name="password"
                 autoComplete="on"
                 placeholder="*****"
-                className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+                className="w-full px-3 py-2 border border-orange-400 focus:border-orange-400 bg-orange-100 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
               />
             </div>
             <p className="text-red-600">{error}</p>
@@ -122,7 +122,7 @@ const SignUp = () => {
             <div>
               <button
                 type="submit"
-                className="w-full px-8  py-3 font-semibold text-white bg-[#000000]  rounded-lg text-sm text-center mr-2 mb-2"
+                className="w-full px-8  py-3 bg-orange-500 hover:bg-orange-500 font-semibold   dark:focus:ring-blue-800  rounded-lg text-white text-center mr-2 mb-2"
               >
                 Sign up
               </button>

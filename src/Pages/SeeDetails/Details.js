@@ -10,8 +10,8 @@ const Details = () => {
   const details = useLoaderData();
 
   return (
-    <div className="pb-12 responsive">
-      <div className="lg:w-1/2 md:w-3/4 sm:w-11/12 p-4 shadow-md dark:bg-gray-900 dark:text-gray-100 mx-auto bg-[#70C5B9] rounded-lg mt-5">
+    <div className="pb-12 pt-7 responsive">
+      <div className="lg:w-1/2 md:w-3/4 sm:w-11/12 p-4 shadow-md dark:bg-gray-900 dark:text-gray-100 mx-auto bg-[#F3F4F6] border border-orange-400 rounded-lg mt-5">
         <div className="flex justify-between  pb-4 border-bottom">
           {details &&
             details?.map((detail) => (

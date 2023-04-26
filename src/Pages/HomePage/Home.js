@@ -1,21 +1,23 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
+import hero from "../../asset/image/hero-image.png";
 
 const Home = () => {
   const { user } = useContext(AuthContext);
   return (
     <div>
-      <section className="pb-10 bg-[#70c5b9] dark:bg-black">
+      <section className="pb-10  dark:bg-black">
         <div className=" dark:bg-black">
-          <div className="container flex flex-col items-center px-4 py-16 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32 dark:text-gray-900">
+          <img src={hero} alt="" className="w-1/2 mx-auto" />
+          <div className="container flex flex-col items-center px-4 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32 dark:text-gray-900">
             <h1 className="text-3xl font-bold leading-none sm:text-6xl xl:max-w-3xl dark:text-gray-400">
-              Add your daily task here
+              Add your daily work schedule here
             </h1>
             <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl dark:text-gray-500">
               There's no need to waste a good part of your day attending to
-              tasks that can be taken care of by task management or even
-              automated. When you don't have to worry about simple daily tasks,
+              tasks that can be taken care of by work schedule or even
+              automated. When you don't have to worry about simple daily work,
               there will be more time to get work done.
             </p>
 
@@ -45,7 +47,7 @@ const Home = () => {
               <Link to="/login">
                 <button
                   type="button"
-                  className="px-8 py-3 m-2 text-lg font-semibold border rounded outline outline-black dark:border-gray-700 dark:text-gray-50"
+                  className="px-8 py-3 m-2 text-lg font-semibold border bg-orange-300  rounded outline outline-orange-400 dark:border-gray-700 dark:text-gray-50"
                 >
                   Log In First
                 </button>

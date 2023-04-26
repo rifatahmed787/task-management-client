@@ -10,7 +10,7 @@ const MyTasks = () => {
   const { user } = useContext(AuthContext);
 
   //titlehook
-  TitleHook("My Tasks");
+  TitleHook("My Work");
 
   const {
     data: tasks = [],

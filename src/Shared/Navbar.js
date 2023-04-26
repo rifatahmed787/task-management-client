@@ -53,7 +53,7 @@ const Navbar = () => {
                 : ""
             }`}
           >
-            <Link to="/addtasks">Add Tasks</Link>
+            <Link to="/addtasks">Add Work</Link>
           </li>
           <li
             className={`font-semibold dark:text-white ${
@@ -62,7 +62,7 @@ const Navbar = () => {
                 : ""
             }`}
           >
-            <Link to="/mytasks">My Tasks</Link>
+            <Link to="/mytasks">My Work</Link>
           </li>
           <li
             className={`font-semibold dark:text-white ${
@@ -71,7 +71,7 @@ const Navbar = () => {
                 : ""
             }`}
           >
-            <Link to="/completetasks">Complete Tasks</Link>
+            <Link to="/completetasks">Complete Work</Link>
           </li>
           <li className="font-semibold dark:text-white">
             <button onClick={handleLogOut}>Log out</button>
@@ -116,7 +116,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="bg-[#70c5b9]">
+    <div className="bg-[#FFFFFF] dark:bg-gray-500">
       <div className="px-4 py-7 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 ">
         <div className="relative flex items-center justify-between">
           <Link
@@ -127,7 +127,7 @@ const Navbar = () => {
           >
             <Icon icon="material-symbols:task" width="32" />
             <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase dark:text-white focus:shadow-outline">
-              Tasks Management
+              Work Schedule
             </span>
           </Link>
           <ul className="flex items-center hidden space-x-7 lg:flex">
@@ -183,7 +183,7 @@ const Navbar = () => {
                           className="dark:text-white"
                         />
                         <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase dark:text-white">
-                          Tasks Management
+                          Work Schedule
                         </span>
                       </Link>
                     </div>

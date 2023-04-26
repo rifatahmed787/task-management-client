@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 const TitleHook = (title) => {
   useEffect(() => {
-    document.title = `${title}-Tasks Management`;
+    document.title = `${title}-Work Schedule`;
   }, [title]);
 };
 

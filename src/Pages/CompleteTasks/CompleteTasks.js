@@ -14,7 +14,7 @@ const CompleteTasks = () => {
   const navigate = useNavigate();
 
   //titlehook
-  TitleHook("Complete Tasks");
+  TitleHook("Complete Work");
 
   const {
     data: tasks = [],
@@ -88,7 +88,7 @@ const CompleteTasks = () => {
         doneTask.map((task) => (
           <div
             key={task._id}
-            className="lg:w-2/5 md:w-3/5 sm:w-4/5 responsive-card p-6 responsive mx-auto mt-10 bg-[#70C5B9] border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700"
+            className="lg:w-2/5 md:w-3/5 sm:w-4/5 responsive-card p-6 responsive mx-auto mt-10 bg-[#F3F4F6] border border-orange-400 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700"
           >
             <div className="flex justify-between">
               <div className="flex items-center">

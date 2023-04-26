@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import png from "../../asset/image/cloud-upload-regular-240.png";
+import png from "../../asset/image/attachment-svgrepo-com.svg";
 import { AuthContext } from "../../Context/AuthProvider";
 import TitleHook from "../../Shared/TitleHook";
 import "./AddTasks.css";
@@ -15,7 +15,7 @@ const AddTasks = () => {
   const navigate = useNavigate();
 
   //titlehook
-  TitleHook("Add Tasks");
+  TitleHook("Add Work");
 
   useEffect(() => {
     if (!fileList) {
@@ -94,7 +94,7 @@ const AddTasks = () => {
   };
   return (
     <div className="responsive pb-10">
-      <div className=" lg:w-1/2 md:w-2/3 sm:w-2/5 mx-auto  p-4 my-8 bg-[#70C5B9] border border-gray-200 rounded-lg shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+      <div className=" lg:w-1/2 md:w-2/3 sm:w-2/5 mx-auto  p-4 my-8 bg-[#F3F4F6] border border-orange-400 rounded-lg shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
         <div className="flex justify-center items-center">
           <h5 className="text-xl mr-2 font-medium text-gray-900 dark:text-white">
             Add your list here
@@ -106,15 +106,15 @@ const AddTasks = () => {
               htmlFor="task"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              Add Tasks
+              Work Title
             </label>
             <input
               type="text"
               name="task"
               id="task"
               autoComplete="on"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 py-4 dark:bg-gray-600 dark:border-white dark:placeholder-gray-400 dark:text-white"
-              placeholder="Add Tasks"
+              className="bg-orange-100 border border-orange-400 focus:border-orange-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 py-4 dark:bg-gray-600 dark:border-white dark:placeholder-gray-400 dark:text-white"
+              placeholder="Work Title"
               required
             />
           </div>
@@ -131,12 +131,12 @@ const AddTasks = () => {
               type="text"
               name="details"
               id="details"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 py-4 dark:bg-gray-600 dark:border-white dark:placeholder-gray-400 dark:text-white"
+              className="bg-orange-100 border border-orange-400 focus:border-orange-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 py-4 dark:bg-gray-600 dark:border-white dark:placeholder-gray-400 dark:text-white"
               placeholder="Add Details"
               required
             />
           </div>
-          <fieldset className="w-full space-y-1 dark:text-gray-100">
+          <fieldset className="w-full space-y-5 dark:text-gray-100">
             <label htmlFor="files" className="block text-sm font-medium">
               Attachments
             </label>
@@ -157,14 +157,14 @@ const AddTasks = () => {
                 />
 
                 <label htmlFor="files">
-                  <img src={png} alt="" className="block w-36" />
+                  <img src={png} alt="" className="block w-24" />
                 </label>
               </div>
             )}
           </fieldset>
           <button
             type="submit"
-            className=" text-white bg-[#000000] hover:bg-[#000000] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className=" text-white bg-orange-400 hover:bg-orange-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             Submit
           </button>
