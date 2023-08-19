@@ -3,11 +3,13 @@ import { Icon } from "@iconify/react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 import { toast } from "react-hot-toast";
+import "./Navbar.css";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, LogOut } = useContext(AuthContext);
   const [theme, setTheme] = useState("light");
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -18,6 +20,22 @@ const Navbar = () => {
       document.documentElement.classList.remove("dark");
     }
   }, [theme]);
+
+  useEffect(() => {
+    function handleScroll() {
+      if (window.scrollY > 100) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   //dark mode handler
   const themeToggle = () => {
@@ -36,44 +54,52 @@ const Navbar = () => {
   const menuItems = (
     <>
       <li
-        className={`font-semibold  dark:text-white ${
-          location.pathname === "/"
-            ? "bg-[#000000] rounded-lg px-2 py-1 text-white"
-            : ""
-        }`}
+        className={`py-5 font-semibold text-white ${
+          scrolled ? "text-black dark:text-white" : ""
+        } ${location.pathname === "/" ? "border-b-2 border-indigo-800" : ""}`}
       >
         <Link to="/">Home</Link>
       </li>
       {user?.uid ? (
         <>
           <li
-            className={`font-semibold dark:text-white ${
+            className={`py-5 font-semibold text-white ${
+              scrolled ? "text-black dark:text-white" : ""
+            }  ${
               location.pathname === "/addtasks"
-                ? "bg-[#000000] rounded-lg px-2 py-1 text-white"
+                ? "border-b-2 border-indigo-800"
                 : ""
             }`}
           >
-            <Link to="/addtasks">Add Work</Link>
+            <Link to="/addtasks">Add Task</Link>
           </li>
           <li
-            className={`font-semibold dark:text-white ${
+            className={`py-5 font-semibold text-white ${
+              scrolled ? "text-black dark:text-white" : ""
+            } ${
               location.pathname === "/mytasks"
-                ? "bg-[#000000] rounded-lg px-2 py-1 text-white"
+                ? "border-b-2 border-indigo-800"
                 : ""
             }`}
           >
-            <Link to="/mytasks">My Work</Link>
+            <Link to="/mytasks">My Task</Link>
           </li>
           <li
-            className={`font-semibold dark:text-white ${
+            className={`py-5 font-semibold text-white ${
+              scrolled ? "text-black dark:text-white" : ""
+            } ${
               location.pathname === "/completetasks"
-                ? "bg-[#000000] rounded-lg px-2 py-1 text-white"
+                ? "border-b-2 border-indigo-800"
                 : ""
             }`}
           >
-            <Link to="/completetasks">Complete Work</Link>
+            <Link to="/completetasks">Complete Task</Link>
           </li>
-          <li className="font-semibold dark:text-white">
+          <li
+            className={`font-semibold text-white ${
+              scrolled ? "text-black dark:text-white" : ""
+            }`}
+          >
             <button onClick={handleLogOut}>Log out</button>
           </li>
           <>
@@ -93,9 +119,11 @@ const Navbar = () => {
       ) : (
         <>
           <li
-            className={`font-semibold mr-2 dark:text-white ${
+            className={`font-semibold mr-2 py-5 text-white ${
+              scrolled ? "text-black dark:text-white" : ""
+            } ${
               location.pathname === "/signup"
-                ? "bg-[#000000] rounded-lg px-2 py-1 text-white"
+                ? "border-b-2 border-indigo-800 text-white"
                 : ""
             }`}
           >
@@ -103,9 +131,11 @@ const Navbar = () => {
           </li>
 
           <li
-            className={`font-semibold mr-2 dark:text-white ${
+            className={`font-semibold mr-2 py-5 text-white ${
+              scrolled ? "text-black dark:text-white" : ""
+            } ${
               location.pathname === "/login"
-                ? "bg-[#000000] rounded-lg px-2 py-1 text-white"
+                ? "border-b-2 border-indigo-800 text-white"
                 : ""
             }`}
           >
@@ -116,21 +146,39 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="bg-[#FFFFFF] dark:bg-gray-500">
-      <div className="px-4 py-7 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 ">
+    <div
+      className={`fixed top-0 z-50 w-full transition duration-500 ${
+        scrolled
+          ? `bg-white dropdown-menu shadow-lg ${
+              theme === "dark" ? "bg-gradient-backdrop" : ""
+            }`
+          : "bg-transparent"
+      } `}
+    >
+      <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-14 ">
         <div className="relative flex items-center justify-between">
           <Link
             to="/"
             aria-label="Company"
             title="Company"
-            className="inline-flex items-center dark:text-white"
+            className="inline-flex items-center dtext-white"
           >
-            <Icon icon="material-symbols:task" width="32" />
-            <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase dark:text-white focus:shadow-outline">
-              Work Schedule
+            <Icon
+              icon="cil:task"
+              width="32"
+              className={`text-white ${
+                scrolled ? "text-black dark:text-white" : ""
+              }`}
+            />
+            <span
+              className={`ml-2 text-xl font-bold tracking-wide uppercase text-white focus:shadow-outline ${
+                scrolled ? "text-black dark:text-white" : ""
+              }`}
+            >
+              My-Task
             </span>
           </Link>
-          <ul className="flex items-center hidden space-x-7 lg:flex">
+          <ul className=" items-center hidden space-x-7 lg:flex">
             {menuItems}
           </ul>
           <div className="mt-1.5">
@@ -151,7 +199,7 @@ const Navbar = () => {
               className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
               onClick={() => setIsMenuOpen(true)}
             >
-              <svg className="w-5 text-white" viewBox="0 0 24 24">
+              <svg className="w-5 text-black" viewBox="0 0 24 24">
                 <path
                   fill="currentColor"
                   d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
@@ -178,12 +226,18 @@ const Navbar = () => {
                         className="inline-flex items-center"
                       >
                         <Icon
-                          icon="material-symbols:task"
+                          icon="cil:task"
                           width="32"
-                          className="dark:text-white"
+                          className={`text-white ${
+                            scrolled ? "text-black dark:text-white" : ""
+                          }`}
                         />
-                        <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase dark:text-white">
-                          Work Schedule
+                        <span
+                          className={`ml-2 text-xl font-bold tracking-wide uppercase text-white focus:shadow-outline ${
+                            scrolled ? "text-black dark:text-white" : ""
+                          }`}
+                        >
+                          My-Task
                         </span>
                       </Link>
                     </div>

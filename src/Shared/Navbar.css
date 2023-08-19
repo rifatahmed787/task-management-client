@@ -1,0 +1,34 @@
+@keyframes dropdown-small {
+  0% {
+    transform: translateX(-25px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.dropdown-menu-small {
+  animation-name: dropdown-small;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+}
+
+/* for large devices */
+@keyframes dropdown {
+  0% {
+    transform: translateY(-25px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.dropdown-menu {
+  animation-name: dropdown;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+}

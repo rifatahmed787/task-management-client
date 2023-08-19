@@ -3,6 +3,7 @@ import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 import GoogleSignIn from "./GoogleSignIn";
+import security from "../asset/image/security1.jpg";
 import "./SignUp.css";
 
 const SignUp = () => {
@@ -56,8 +57,26 @@ const SignUp = () => {
   // };
 
   return (
-    <div className="py-10 responsive">
-      <div className="flex flex-col max-w-md p-6 border border-orange-400 shadow-2xl bg-[#F3F4F6] mx-auto  rounded-md sm:p-10 dark:bg-gray-900 dark:text-gray-100">
+    <div className="dark:bg-[#0F172A] pb-5 responsive">
+      <div className="relative after:absolute after:content-normal after:bg-black after:opacity-30 after:h-full after:w-full after:top-0 after:left-0">
+        <img
+          src={security}
+          alt=""
+          className="w-full bg-no-repeat  bg-cover relative"
+        />
+
+        <div className="absolute top-16 md:top-32 lg:top-1/3 left-0 right-0 text-center z-10">
+          <h1 className="error font-bold  lg:text-5xl text-4xl text-white">
+            Sign Up To Create Your Account
+          </h1>
+          <p className="md:text-lg text-white flex justify-center items-center  font-bold mt-3 text-brand2 text-base">
+            <Link to="/" className="hover:-translate-x-1 duration-300">
+              <span>Home</span>
+            </Link>
+          </p>
+        </div>
+      </div>
+      <div className="flex flex-col max-w-md p-6 my-10 border border-indigo-800 shadow-2xl bg-[#F3F4F6] mx-auto  rounded-md sm:p-10 dark:bg-gray-900 dark:text-gray-100">
         <div className="mb-8 text-center">
           <h1 className="my-3 text-4xl font-bold">Sign up</h1>
           <p className="text-sm dark:text-gray-400">
@@ -79,7 +98,7 @@ const SignUp = () => {
                 name="name"
                 type="text"
                 placeholder="name"
-                className="w-full px-3 py-2 border border-orange-400 focus:border-orange-400 bg-orange-100 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+                className="w-full px-3 py-2 border border-indigo-800 focus:border-indigo-800 bg-indigo-100 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
               />
             </div>
             <div>
@@ -91,7 +110,7 @@ const SignUp = () => {
                 name="email"
                 id="email"
                 placeholder="Email"
-                className="w-full px-3 py-2 border border-orange-400 focus:border-orange-400 bg-orange-100 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+                className="w-full px-3 py-2 border border-indigo-800 focus:border-indigo-800 bg-indigo-100 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
               />
             </div>
             <div>
@@ -112,7 +131,7 @@ const SignUp = () => {
                 name="password"
                 autoComplete="on"
                 placeholder="*****"
-                className="w-full px-3 py-2 border border-orange-400 focus:border-orange-400 bg-orange-100 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+                className="w-full px-3 py-2 border border-indigo-800 focus:border-indigo-800 bg-indigo-100 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
               />
             </div>
             <p className="text-red-600">{error}</p>
@@ -122,7 +141,7 @@ const SignUp = () => {
             <div>
               <button
                 type="submit"
-                className="w-full px-8  py-3 bg-orange-500 hover:bg-orange-500 font-semibold   dark:focus:ring-blue-800  rounded-lg text-white text-center mr-2 mb-2"
+                className="w-full px-8  py-3 bg-indigo-600 hover:bg-indigo-800 duration-700 font-semibold   dark:focus:ring-blue-800  rounded-lg text-white text-center mr-2 mb-2"
               >
                 Sign up
               </button>

@@ -26,7 +26,7 @@ const GoogleSignIn = () => {
         onClick={handleGoogleSignIn}
         aria-label="Login with Google"
         type="button"
-        className="btn btn-outline flex items-center justify-center w-full px-10 py-3 space-x-4 relative  overflow-hidden font-medium  rounded-lg group border border-orange-400 hover:border-orange-300 hover:bg-orange-500 hover:text-white"
+        className="btn btn-outline flex items-center justify-center w-full px-10 py-3 space-x-4 relative  overflow-hidden font-medium  rounded-lg group border border-indigo-800 hover:border-indigo-500 hover:bg-indigo-800 duration-700 hover:text-white"
       >
         <Icon icon="mdi:google" width="24" />
         <p className="font-semibold">CONTINUE WITH GOOGLE</p>

@@ -1,19 +1,22 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
-import hero from "../../asset/image/hero-image.png";
+import hero from "../../asset/image/hero2.jpg";
 
 const Home = () => {
   const { user } = useContext(AuthContext);
   return (
-    <div>
-      <section className="pb-10  dark:bg-black">
-        <div className=" dark:bg-black">
-          <img src={hero} alt="" className="w-1/2 mx-auto" />
-          <div className="container flex flex-col items-center px-4 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32 dark:text-gray-900">
-            <h1 className="text-3xl font-bold leading-none sm:text-6xl xl:max-w-3xl dark:text-gray-400">
-              Add your daily work schedule here
+    <div className="bg-gradient-to-r from-[#6982D0] via-[#7B82CC] to-[#8B83C6] min-h-screen">
+      <section className="py-20 md:py-32 px-4 md:px-24 max-w-screen-2xl mx-auto dark:bg-[#0F172A]">
+        <div className="  grid grid-cols-1 md:grid-cols-2 justify-items-center items-center gap-5">
+          <div className=" text-white dark:text-gray-900 text-left">
+            <h1 className="text-xl md:text-5xl font-bold leading-none xl:max-w-3xl dark:text-gray-400">
+              Manage work <br />{" "}
+              <span className="text-indigo-800">Efficiently.</span>
             </h1>
+            <h5 className="text-2xl font-bold pt-5">
+              Plan, Track and Organise your work.
+            </h5>
             <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl dark:text-gray-500">
               There's no need to waste a good part of your day attending to
               tasks that can be taken care of by work schedule or even
@@ -21,39 +24,67 @@ const Home = () => {
               there will be more time to get work done.
             </p>
 
-            <div className="lg:flex flex-wrap justify-center items-center">
-              <p className="px-3 text-xl dark:text-white">Logged in?</p>
+            <div>
               {user?.email ? (
-                <Link to="/addtasks">
-                  <button
-                    type="button"
-                    className="px-8 py-3 m-2 text-lg font-semibold rounded outline outline-black dark:bg-gray-800 dark:text-gray-50"
+                <div>
+                  <Link
+                    to="/addtasks"
+                    className="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-white transition duration-300 ease-out border-2 border-white  shadow-md group"
                   >
-                    Get started
-                  </button>
-                </Link>
+                    <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-indigo-800 group-hover:translate-x-0 ease">
+                      <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M14 5l7 7m0 0l-7 7m7-7H3"
+                        ></path>
+                      </svg>
+                    </span>
+                    <span className="absolute flex items-center justify-center w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease">
+                      Get started
+                    </span>
+                    <span className="relative invisible">Get started</span>
+                  </Link>
+                </div>
               ) : (
-                <Link to="/signup">
-                  <button
-                    type="button"
-                    className="px-8 py-3 m-2 text-lg font-semibold rounded outline outline-black dark:bg-gray-800 dark:text-gray-50"
+                <div>
+                  <Link
+                    to="/signup"
+                    className="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-white transition duration-300 ease-out border-2 border-white  shadow-md group"
                   >
-                    Get started
-                  </button>
-                </Link>
+                    <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-indigo-800 group-hover:translate-x-0 ease">
+                      <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M14 5l7 7m0 0l-7 7m7-7H3"
+                        ></path>
+                      </svg>
+                    </span>
+                    <span className="absolute flex items-center justify-center w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease">
+                      Get started
+                    </span>
+                    <span className="relative invisible">Get started</span>
+                  </Link>
+                </div>
               )}
-
-              <p className="px-3 text-xl dark:text-white">else</p>
-              <Link to="/login">
-                <button
-                  type="button"
-                  className="px-8 py-3 m-2 text-lg font-semibold border bg-orange-300  rounded outline outline-orange-400 dark:border-gray-700 dark:text-gray-50"
-                >
-                  Log In First
-                </button>
-              </Link>
             </div>
           </div>
+          <img src={hero} alt="" className="w-full  mx-auto" />
         </div>
       </section>
     </div>
